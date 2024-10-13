@@ -1,101 +1,121 @@
+'use client'
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [mounted, setMounted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const images = [
+    "/1.jpeg",
+    "/2.jpeg",
+    "/3.jpeg",
+    "/4.jpeg",
+    "/5.jpeg",
+    "/6.jpeg",
+    "/7.jpeg",
+    "/8.jpeg",
+    "/9.jpeg",
+    "/10.jpeg",
+    "/11.jpeg",
+  ];
+
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    focusOnSelect: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: "30px",
+        }
+      }
+    ]
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-white">
+      <main className="w-full max-w-4xl text-center flex flex-col gap-12 items-center">
+        <p className="text-7xl font-bold text-center text-transparent bg-clip-text bg-black drop-shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out">
+          The N Word
+        </p>
+        <Image
+                src="/main.jpeg"
+                alt="Main"
+                className="rounded border border-neutral-400 hover:border-black"
+                width={700}
+                height={400}
+              />
+
+        <div className="border-b-4 border-gray-300 w-full pb-8">
+          <div className="flex justify-center space-x-6 items-center">
+            <a href="https://x.com/" title="Visit X" target="_blank" className="transform hover:scale-110 transition duration-300">
+              <Image
+                src="/X.jpg"
+                alt="X"
+                className="rounded-full border-4 border-neutral-400 hover:border-black"
+                width={60}
+                height={60}
+              />
+            </a>
+            <a href="https://dexscreener.com/" title="Visit Dexscreener" target="_blank" className="transform hover:scale-110 transition duration-300">
+              <Image
+                src="/DEX.jpg"
+                alt="Dexscreener"
+                className="rounded-full border-4 border-neutral-400 hover:border-black"
+                width={60}
+                height={60}
+              />
+            </a>
+            <a href="https://t.me/" title="Visit Telegram" target="_blank" className="transform hover:scale-110 transition duration-300">
+              <Image
+                src="/TG.jpg"
+                alt="Telegram"
+                className="rounded-full border-4 border-neutral-400 hover:border-black"
+                width={60}
+                height={60}
+              />
+            </a>
+          </div>
         </div>
+        <div className="w-full mt-8">
+          {mounted && (
+            <Slider {...settings}>
+              {images.map((src, index) => (
+                <div key={index} className="px-2">
+                  <Image
+                    src={src}
+                    alt={`Slide ${index + 1}`}
+                    width={400}
+                    height={300}
+                    className="rounded-lg shadow-lg transition duration-300 hover:shadow-xl"
+                  />
+                </div>
+              ))}
+            </Slider>
+          )}
+        </div>
+        
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <style jsx global>{`
+        .slick-prev:before,
+        .slick-next:before {
+          color: black !important;
+        }
+      `}</style>
     </div>
   );
 }
