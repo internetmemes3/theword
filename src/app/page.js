@@ -62,7 +62,7 @@ export default function Home() {
 
         <div className="border-b-4 border-gray-300 w-full pb-8">
           <div className="flex justify-center space-x-6 items-center">
-            <a href="https://x.com/" title="Visit X" target="_blank" className="transform hover:scale-110 transition duration-300">
+            <a href="https://x.com/N_words_sol" title="Visit X" target="_blank" className="transform hover:scale-110 transition duration-300">
               <Image
                 src="/X.jpg"
                 alt="X"
@@ -80,7 +80,7 @@ export default function Home() {
                 height={60}
               />
             </a>
-            <a href="https://t.me/" title="Visit Telegram" target="_blank" className="transform hover:scale-110 transition duration-300">
+            <a href="https://t.me/+IDm0W7Wm4B8xNWM0" title="Visit Telegram" target="_blank" className="transform hover:scale-110 transition duration-300">
               <Image
                 src="/TG.jpg"
                 alt="Telegram"
