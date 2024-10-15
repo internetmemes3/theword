@@ -74,7 +74,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-white">
       <main className="w-full max-w-4xl text-center flex flex-col gap-12 items-center">
         <p className="text-7xl font-bold text-center text-transparent bg-clip-text bg-black drop-shadow-lg transform hover:scale-105 transition-transform duration-500 ease-in-out">
-          The N Word
+          The N Words
         </p>
         <Image
                 src="/main.jpeg"
