@@ -114,6 +114,9 @@ export default function Home() {
               />
             </a>
           </div>
+          <p className="text-2xl w-full font-bold text-center mt-4">
+          EArVvppTMtj6PJBjgNBbpXSCG5kx7yxfXEgnEcqGpump
+        </p>
         </div>
         <div className="w-full mt-8">
           {mounted && (
